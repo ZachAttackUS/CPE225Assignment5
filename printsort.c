@@ -1,15 +1,5 @@
 #include <stdio.h>
 
-// void readstring(char str[20]){
-//     int i = 0; char c = '\0';
-//     while ((c == getchar()) != '\n' && i<19){
-//         str[i] = c;
-//         i++;
-//     }
-
-//     str[i] ='\0';
-
-// }
 
 void readstring(char str[]) {
     int i = 0;
@@ -46,7 +36,7 @@ int count_letters(char letter, char str[]){
 
 void sort_function(char str[]){
     int x = 0; int length = 0; int i = 0; int k = 0; int count;
-    char lowest; int repeats = 0; char secondlowest; char used;
+    char lowest; int repeats = 0; char secondlowest; char used; char value;
     while (str[length] != '\0'){
         length++; //Sets length to be the right length
 
@@ -63,7 +53,7 @@ void sort_function(char str[]){
             
         }
 
-        char value = lowest;
+        value = lowest;
         count = count_letters(value, str);
         for (int i = 0; i < count; i++){
             printf("%c", value);
@@ -79,13 +69,29 @@ void sort_function(char str[]){
 
 
 int main(void){
+
+int x = 1;
+while (x == 1){
+
+
 char str[20];
 printf("Enter word: ");
 readstring(str);
-printf("Original word: %s\n" , str);
-printf("Alphabetized word: ");
-sort_function(str);
+if (str[0] == '\0'){
+    printf("\nExiting");
+    printf("%c", '\n');
+    x = 0;
+}
+else
+{
+    printf("Original word: %s\n" , str);
+    printf("Alphabetized word: ");
+    sort_function(str);
+    printf("%c", '\n');
+    x = 1;
+    
+}
 
-
+}
 return 0;
 }
